@@ -47,7 +47,8 @@ function StudentList() {
     checkAuthAndLogoutIfExpired(navigate);
     try {
       // FIX: Added /api to the URL
-      await axios.delete(`https://student-result-app.onrender.com/api/students/${studentToDelete._id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/students/${studentToDelete._id}`, {
+
         headers: { Authorization: 'Bearer ' + getToken() }
       });
       setStudents(students.filter((s) => s._id !== studentToDelete._id));
