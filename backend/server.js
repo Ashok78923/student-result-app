@@ -12,10 +12,16 @@ const User = require('./models/User');
 const authenticateToken = require('./middleware/auth');
 
 // Middleware
+// In backend/server.js
+
 app.use(cors({
-  // You can set a FRONTEND_URL variable in Render or it will default to your Vercel URL
-  origin: process.env.FRONTEND_URL || 'https://student-result-app-d741.vercel.app', 
+  origin: [
+    'http://localhost:3000',
+    'https://student-result-app-d741.vercel.app' // NOTE: Your Vercel URL may be different, check and update if needed
+  ],
+  // --- ADD THIS METHODS ARRAY ---
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  // ----------------------------
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
