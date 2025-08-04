@@ -19,10 +19,8 @@ function AppNavbar() {
       <Container>
         <Navbar.Brand as={Link} to="/">My Full Stack Project</Navbar.Brand>
         
-        {/* This is the hamburger button that appears on mobile */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
-        {/* This is the collapsible section */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
@@ -34,11 +32,17 @@ function AppNavbar() {
             )}
           </Nav>
           <Nav>
-            {isAuthenticated && (
+            {/* --- FIX: Added a Login button for logged-out users --- */}
+            {isAuthenticated ? (
               <Button variant="outline-light" onClick={handleLogout}>
                 Logout
               </Button>
+            ) : (
+              <Nav.Link as={Link} to="/login">
+                  Login
+              </Nav.Link>
             )}
+            {/* -------------------------------------------------------- */}
           </Nav>
         </Navbar.Collapse>
       </Container>
