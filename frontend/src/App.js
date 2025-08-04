@@ -8,8 +8,7 @@ import EditStudent from "./components/EditStudent";
 import StudentList from "./components/StudentList";
 import NotFound from "./components/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
-
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
